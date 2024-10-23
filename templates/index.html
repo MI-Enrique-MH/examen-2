@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Seminario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        .formulario {
+            width: 70%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .seminarios {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Seminario</h1>
+    <form action="{{ url_for('procesa') }}" method="POST">
+        <div class="container">
+            <div class="formulario">
+                <label for="fecha">Fecha:</label>
+                <input type="date" name="fecha" required><br>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required><br>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" required><br>
+
+                <label for="turno">Turno:</label>
+                <select name="turno" required>
+                    <option value="mañana">Mañana</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noche">Noche</option>
+                </select><br>
+            </div>
+
+            <div class="seminarios">
+                <label for="seminarios">Seminarios Disponibles:</label><br>
+                <input type="checkbox" name="seminarios" value="Seminario 1"> Seminario 1<br>
+                <input type="checkbox" name="seminarios" value="Seminario 2"> Seminario 2<br>
+                <input type="checkbox" name="seminarios" value="Seminario 3"> Seminario 3<br>
+            </div>
+        </div>
+        
+        <input type="submit" value="Registrar y Ver Lista">
+    </form>
+</body>
+</html>
